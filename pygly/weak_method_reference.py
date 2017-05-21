@@ -40,14 +40,14 @@ class WeakMethodReference( object ):
         super( WeakMethodReference, self ).__init__()
 
         try:
-            if function.im_self is not None:
+            if function.__self__ is not None:
                 # bound method
-                self._obj = weakref.ref( function.im_self )
+                self._obj = weakref.ref( function.__self__ )
             else:
                 # unbound method
                 self._obj = None
-            self._func = function.im_func
-            self._class = function.im_class
+            self._func = function.__func__
+            self._class = function.__self__.__class__
         except AttributeError:
             # not a method
             self._obj = None

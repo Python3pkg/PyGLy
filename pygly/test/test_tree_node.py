@@ -60,14 +60,14 @@ class test_node( unittest.TestCase ):
 
         dfs = [ node for node in a1.dfs() ]
         for node in dfs:
-            print node.name
+            print(node.name)
 
         try:
             dfs = a1.dfs()
-            child = dfs.next()
+            child = next(dfs)
             while child:
-                print child.name
-                child = dfs.next()
+                print(child.name)
+                child = next(dfs)
         except StopIteration:
             pass
 
@@ -75,33 +75,33 @@ class test_node( unittest.TestCase ):
 
         # first match should be tier2
         self.assertTrue(
-            dfs.next() in tier2,
+            next(dfs) in tier2,
             "First DFS incorrect"
             )
 
         # second match should be tier3
         self.assertTrue(
-            dfs.next() in tier3,
+            next(dfs) in tier3,
             "Second DFS incorrect"
             )
         # third match should be tier3
         self.assertTrue(
-            dfs.next() in tier3,
+            next(dfs) in tier3,
             "Third DFS incorrect"
             )
         # fourth match should be tier 2
         self.assertTrue(
-            dfs.next() in tier2,
+            next(dfs) in tier2,
             "Fourth DFS incorrect"
             )
         # fifth match should be tier 3
         self.assertTrue(
-            dfs.next() in tier3,
+            next(dfs) in tier3,
             "Fifth DFS incorrect"
             )
         # sixth match should be tier3
         self.assertTrue(
-            dfs.next() in tier3,
+            next(dfs) in tier3,
             "Sixth DFS incorrect"
             )
 

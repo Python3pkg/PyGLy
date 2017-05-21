@@ -5,7 +5,7 @@ import pygly.gl
 import OpenGL.GL as GL
 import OpenGL.GLUT as GLUT
 
-from application import BaseApplication
+from .application import BaseApplication
 
 
 class Application( BaseApplication ):
@@ -74,7 +74,7 @@ class Application( BaseApplication ):
     def on_special_key_pressed( self, key, x, y ):
         if key in self.keys:
             self.scene.on_key_pressed( self.keys[ key ] )
-            print self.keys[ key ]
+            print(self.keys[ key ])
 
     def on_special_key_released( self, key, x, y ):
         if key in self.keys:

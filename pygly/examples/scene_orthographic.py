@@ -1,7 +1,7 @@
 import pyrr.rectangle
 import pyrr.matrix44
 
-import scene_scene_graph
+from . import scene_scene_graph
 
 
 class Scene( scene_scene_graph.Scene ):

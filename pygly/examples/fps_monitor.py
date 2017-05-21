@@ -17,6 +17,6 @@ class FPS_Monitor( object ):
         new_time = time()
         diff = new_time - self.time
         if diff > self.print_time:
-            print "FPS:",float(self.frame_count) / diff
+            print("FPS:",float(self.frame_count) / diff)
             self.time = new_time
             self.frame_count = 0

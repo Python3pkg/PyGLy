@@ -7,8 +7,8 @@ import pyrr.matrix44
 import pygly.gl
 import pygly.viewport
 
-import scene
-import renderable_triangle
+from . import scene
+from . import renderable_triangle
 
 
 class Scene( scene.Scene ):

@@ -46,7 +46,7 @@ class PyGLyLayer( Layer ):
 
         This is called by Cocos2D Director.
         """
-        print 'layer draw'
+        print('layer draw')
         super( PyGLyLayer, self ).draw( *args, **kwargs )
 
         # render the scene

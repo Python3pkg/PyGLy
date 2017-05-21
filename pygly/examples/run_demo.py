@@ -25,19 +25,19 @@ def parse_arguments():
         )
     parser.add_argument(
         "-g", "--opengl_profile",
-        choices = profiles.keys(),
+        choices = list(profiles.keys()),
         default = "core",
         help = "The OpenGL profile to use. (default: core)",
         )
     parser.add_argument(
         "-p", "--platform",
-        choices = applications.keys(),
+        choices = list(applications.keys()),
         default = "pyglet",
         help = "The windowing platform to use. (default: pyglet)",
         )
     parser.add_argument(
         "-d", "--demo",
-        choices = demos.keys(),
+        choices = list(demos.keys()),
         default = "basic",
         help = "The demo to run. (default: basic)",
         )
@@ -46,9 +46,9 @@ def parse_arguments():
 def run_demo( args ):
     global profiles, applications, demos
 
-    print "Windowing system:\t", args.platform
-    print "OpenGL profile:\t", args.opengl_profile
-    print "Scene:\t", args.demo
+    print("Windowing system:\t", args.platform)
+    print("OpenGL profile:\t", args.opengl_profile)
+    print("Scene:\t", args.demo)
 
     is_core = profiles[ args.opengl_profile ]
 

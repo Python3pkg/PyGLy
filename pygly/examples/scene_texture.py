@@ -10,8 +10,8 @@ import pygly.gl
 import pygly.viewport
 from pygly.texture import Texture2D
 
-import scene
-import renderable_textured_quad
+from . import scene
+from . import renderable_textured_quad
 
 
 class Scene( scene.Scene ):
@@ -54,7 +54,7 @@ class Scene( scene.Scene ):
         self.generate_random_textures()
 
     def load_texture_directory( self, directory ):
-        print 'Loading images from', directory
+        print('Loading images from', directory)
 
         extensions = [
             '.png',
@@ -72,12 +72,12 @@ class Scene( scene.Scene ):
                 continue
 
             try:
-                print filename,
+                print(filename, end=' ')
                 full_path = '%s/%s' % (directory, filename)
                 texture = Texture2D.from_file(full_path)
                 self.textures.append((filename, texture))
             except Exception as e:
-                print 'Exception:', e
+                print('Exception:', e)
                 # ensure we unbound our textures
                 GL.glBindTexture( GL.GL_TEXTURE_2D, 0 )
 
@@ -167,14 +167,14 @@ class Scene( scene.Scene ):
             self.current_texture %= len( self.textures )
 
             name, texture = self.textures[ self.current_texture ]
-            print name, texture.internal_format
+            print(name, texture.internal_format)
         elif key == "left":
             self.current_texture -= 1
             if self.current_texture < 0:
                 self.current_texture = len( self.textures ) - 1
 
             name, texture = self.textures[ self.current_texture ]
-            print name, texture.internal_format
+            print(name, texture.internal_format)
 
     def on_window_resized( self, width, height ):
         # update the viewport

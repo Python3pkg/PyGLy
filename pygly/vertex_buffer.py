@@ -236,7 +236,7 @@ class BufferAttributes( object ):
         return self.attributes[ index ]
 
     def set( self, enable = True ):
-        for name, attribute in self.attributes.items():
+        for name, attribute in list(self.attributes.items()):
             attribute.set( enable )
 
     def push_attributes( self ):
@@ -267,7 +267,7 @@ class BufferAttribute( object ):
 
     @classmethod
     def from_dtype( cls, buffer, dtype, name, offset = 0, **kwargs ):
-        import numpy_utils
+        from . import numpy_utils
 
         args = {
             'buffer':   buffer,

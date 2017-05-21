@@ -1,4 +1,4 @@
-from fps_monitor import FPS_Monitor
+from .fps_monitor import FPS_Monitor
 
 class BaseApplication( object ):
 

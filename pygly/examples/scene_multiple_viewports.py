@@ -7,7 +7,7 @@ import pygly.viewport
 from pygly.scene_node import SceneNode
 from pygly.camera_node import CameraNode
 
-import scene_scene_graph
+from . import scene_scene_graph
 
 
 class Scene( scene_scene_graph.Scene ):
@@ -69,7 +69,7 @@ class Scene( scene_scene_graph.Scene ):
                 height = height
                 )
 
-            print self.viewport, self.viewport2
+            print(self.viewport, self.viewport2)
 
         def update_cameras():
             # update the projection matrix

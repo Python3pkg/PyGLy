@@ -42,7 +42,7 @@ def _generate_enum_map( enum_names ):
     OpenGL implementations.
     """
     map = {}
-    for (key, value) in enum_names.items():
+    for (key, value) in list(enum_names.items()):
         try:
             map[ getattr(GL, key) ] = value
         except AttributeError:
@@ -114,11 +114,11 @@ def is_core():
 def print_gl_info():
     """Prints common OpenGL version information.
     """
-    print "OpenGL Information:"
+    print("OpenGL Information:")
     for prop in ["GL_VENDOR", "GL_RENDERER", "GL_VERSION", "GL_SHADING_LANGUAGE_VERSION"]:
         type = getattr( GL, prop )
         value = GL.glGetString( type )
-        print "\t%s = %s" % (prop, value)
+        print("\t%s = %s" % (prop, value))
 
 def string_to_type( type ):
     """Converts an OpenGL type from a string to an actual type.

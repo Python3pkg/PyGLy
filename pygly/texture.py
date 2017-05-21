@@ -18,8 +18,8 @@ from OpenGL.GL.ARB import texture_rg
 import numpy
 
 from pyrr.utils import parameters_as_numpy_arrays
-import numpy_utils
-import gl
+from . import numpy_utils
+from . import gl
 
 
 def active_unit():
@@ -56,7 +56,7 @@ def active_texture(target, unit):
     return handle
 
 def format(format):
-    if isinstance(format, basestring):
+    if isinstance(format, str):
         # TODO
         pass
     else:
@@ -298,7 +298,7 @@ class Texture(object):
             if isinstance(data_type, numpy.dtype):
                 # numpy dtype
                 data_type = numpy_utils.dtype_gl_enum(data_type)
-            elif isinstance(data_type, basestring):
+            elif isinstance(data_type, str):
                 # numpy dtype string
                 data_type = numpy_utils.dtype_gl_enum(numpy.dtype(data_type))
 
@@ -322,7 +322,7 @@ class Texture(object):
             # only available on OpenGL Core
             if isinstance(swizzle, (list, tuple)):
                 swizzle = (GL.GLint * len(swizzle))(*swizzle)
-            elif isinstance(swizzle, basestring):
+            elif isinstance(swizzle, str):
                 result = [
                     Texture.channels[channel]
                     for channel in swizzle.lower()

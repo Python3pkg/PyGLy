@@ -15,9 +15,9 @@ from pydispatch import dispatcher
 from pyrr import quaternion
 from pyrr import matrix33
 from pyrr import matrix44
-from tree_node import TreeNode
-from transform import Transform
-from world_transform import WorldTransform
+from .tree_node import TreeNode
+from .transform import Transform
+from .world_transform import WorldTransform
 
     
 class SceneNode( TreeNode ):

@@ -10,8 +10,8 @@ import pygly.viewport
 from pygly.scene_node import SceneNode
 from pygly.camera_node import CameraNode
 
-import scene
-import renderable_cube
+from . import scene
+from . import renderable_cube
 
 
 class Scene( scene.Scene ):

@@ -1,4 +1,4 @@
-from scene_node import SceneNode
+from .scene_node import SceneNode
 
 
 class RenderNode( SceneNode ):

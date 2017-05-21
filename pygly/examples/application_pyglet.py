@@ -3,7 +3,7 @@ import pyglet
 import pygly.gl
 import pygly.pyglet_monkey_patch
 
-from application import BaseApplication
+from .application import BaseApplication
 
 # disable the shadow window
 # this uses a legacy profile and causes issues

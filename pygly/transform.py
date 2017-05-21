@@ -7,8 +7,8 @@ from pyrr import quaternion
 from pyrr import matrix33
 from pyrr import matrix44
 
-from object_space import ObjectSpace 
-from inertial_space import InertialSpace
+from .object_space import ObjectSpace 
+from .inertial_space import InertialSpace
 
 
 class Transform( object ):

@@ -6,7 +6,7 @@ import sys
 # get pygly's version but don't import it
 # or we'll need our dependencies already installed
 # https://github.com/todddeluca/happybase/commit/63573cdaefe3a2b98ece87e19d9ceb18f00bc0d9
-execfile('pygly/version.py')
+exec(compile(open('pygly/version.py').read(), 'pygly/version.py', 'exec'))
 
 setup(
     name = 'pygly',

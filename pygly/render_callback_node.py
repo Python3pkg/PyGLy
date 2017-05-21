@@ -1,4 +1,4 @@
-from render_node import RenderNode
+from .render_node import RenderNode
 
 
 class RenderCallbackNode( RenderNode ):

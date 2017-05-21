@@ -12,8 +12,8 @@ from pygly.scene_node import SceneNode
 from pygly.camera_node import CameraNode
 import pygly.sort
 
-import scene
-import renderable_colour_cube
+from . import scene
+from . import renderable_colour_cube
 
 
 class Scene( scene.Scene ):

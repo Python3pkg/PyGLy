@@ -13,10 +13,10 @@ from pyrr import quaternion
 from pyrr import matrix33
 from pyrr import matrix44
 
-from object_space import ObjectSpace
-from inertial_space import InertialSpace
-from tree_node import TreeNode
-from transform import Transform
+from .object_space import ObjectSpace
+from .inertial_space import InertialSpace
+from .tree_node import TreeNode
+from .transform import Transform
 
 
 class WorldTransform( TreeNode ):

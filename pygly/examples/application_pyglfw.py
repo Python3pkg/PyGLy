@@ -4,7 +4,7 @@ import pygly.gl
 import glfw
 import OpenGL.GL as GL
 
-from application import BaseApplication
+from .application import BaseApplication
 
 
 class Application( BaseApplication ):

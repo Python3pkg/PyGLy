@@ -451,10 +451,10 @@ class Shader( object ):
         for error in errors:
             line, desc = error
 
-            print( "Error compiling shader type: %s" % enum_to_string( self.type ) )
-            print( "\tLine: %i" % line )
-            print( "\tDescription: %s" % desc )
-            print( "\tCode: %s" % lines[ line - 1 ] )
+            print(( "Error compiling shader type: %s" % enum_to_string( self.type ) ))
+            print(( "\tLine: %i" % line ))
+            print(( "\tDescription: %s" % desc ))
+            print(( "\tCode: %s" % lines[ line - 1 ] ))
 
     def __str__( self ):
         string = "%s(type=%s)" % (
@@ -551,8 +551,8 @@ class ShaderProgram( object ):
             # attach the shader
             GL.glAttachShader( self.handle, shader.handle )
         except Exception as e:
-            print( "Error attaching shader type: %s" % enum_to_string( shader.type ) )
-            print( "\tException: %s" % str(e) )
+            print(( "Error attaching shader type: %s" % enum_to_string( shader.type ) ))
+            print(( "\tException: %s" % str(e) ))
 
             # chain the exception
             raise
@@ -602,7 +602,7 @@ class ShaderProgram( object ):
         error buffer converted to a Python String.
         """
         print( "Error linking shader:" )
-        print( "\tDescription: %s" % ( buffer ) )
+        print(( "\tDescription: %s" % ( buffer ) ))
 
         # print the log to the console
         errors = parse_shader_errors( buffer )
@@ -611,7 +611,7 @@ class ShaderProgram( object ):
             line, desc = error
 
             print( "Error linking shader" )
-            print( "\tDescription: %s" % ( desc ) )
+            print(( "\tDescription: %s" % ( desc ) ))
 
     @property
     def linked( self ):
@@ -727,10 +727,10 @@ class Uniforms( object ):
         return self._program
 
     def __iter__( self ):
-        return self.next()
+        return next(self)
 
-    def next( self ):
-        for uniform in self.all().values():
+    def __next__( self ):
+        for uniform in list(self.all().values()):
             yield uniform
 
     def _on_program_linked( self ):
@@ -964,7 +964,7 @@ class InvalidUniform( Uniform ):
 
     def _set_data( self, program, name, type ):
         # ensure we have the right uniform type
-        print( "Uniform '%s' not specified in ShaderProgram" % name )
+        print(( "Uniform '%s' not specified in ShaderProgram" % name ))
 
     @property
     def value( self ):
@@ -1233,10 +1233,10 @@ class Attributes( object ):
             )
 
     def __iter__( self ):
-        return self.next()
+        return next(self)
 
-    def next( self ):
-        for attribute in self.all().values():
+    def __next__( self ):
+        for attribute in list(self.all().values()):
             yield attribute
 
     def all( self ):
@@ -1347,11 +1347,11 @@ def _register_uniforms():
 
     Calling this multiple times will not do any harm.
     """
-    Uniforms.register_uniform_class( UniformFloat, UniformFloat.types.keys() )
-    Uniforms.register_uniform_class( UniformInt, UniformInt.types.keys() )
-    Uniforms.register_uniform_class( UniformUint, UniformUint.types.keys() )
-    Uniforms.register_uniform_class( UniformFloatMatrix, UniformFloatMatrix.types.keys() )
-    Uniforms.register_uniform_class( UniformSampler, UniformSampler.types.keys() )
+    Uniforms.register_uniform_class( UniformFloat, list(UniformFloat.types.keys()) )
+    Uniforms.register_uniform_class( UniformInt, list(UniformInt.types.keys()) )
+    Uniforms.register_uniform_class( UniformUint, list(UniformUint.types.keys()) )
+    Uniforms.register_uniform_class( UniformFloatMatrix, list(UniformFloatMatrix.types.keys()) )
+    Uniforms.register_uniform_class( UniformSampler, list(UniformSampler.types.keys()) )
 
 _register_uniforms()
 

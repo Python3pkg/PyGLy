@@ -4,7 +4,7 @@ from pyrr import quaternion
 from pyrr import matrix44
 from pyrr import ray
 
-from scene_node import SceneNode
+from .scene_node import SceneNode
 
 
 class CameraNode( SceneNode ):
